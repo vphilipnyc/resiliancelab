@@ -1,0 +1,101 @@
+# ==============================================================================
+# Build / Output
+# ==============================================================================
+/build/
+/.gradle/
+/out/
+/bin/
+/tmp/
+/target/
+/dist/
+/data/
+*.class
+*.jar
+*.war
+*.ear
+MANIFEST.MF
+schema_out.sql
+
+# ==============================================================================
+# IDEs / Editors
+# ==============================================================================
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.metadata
+.loadpath
+.externalToolBuilders/
+*.launch
+.target
+*.sublime-project
+*.sublime-workspace
+.vscode/
+
+# ==============================================================================
+# OS Files
+# ==============================================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+Thumbs.db
+ehthumbs.db
+
+# ==============================================================================
+# Financial Data Privacy (CRITICAL)
+# ==============================================================================
+# Do NOT commit your local database or your CSV exports
+/db/
+*.csv
+assets/csv/
+*.json
+!schwab-mapping-template.json
+
+# ==============================================================================
+# Secrets / Keys
+# ==============================================================================
+*.pem
+AwsCredentials.properties
+env/prod/keys.tar.gz
+.Secrets
+secrets.*
+Secrets.*
+.env
+.env.local
+
+# ==============================================================================
+# Temp / Backup
+# ==============================================================================
+*.tmp
+*.bak
+*.swp
+*~
+*.nib
+\#*\#
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ==============================================================================
+# VCS / Framework Specific
+# ==============================================================================
+.svn/
+src/main/webapp/WEB-INF/classes/
+BuildInfo.java
+.springWebflow
+.springBeans
+/node_modules/
+frontend/node_modules/
+*.lock
+/build
+src/main/resources/static/

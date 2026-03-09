@@ -1,0 +1,62 @@
+# ==============================================================================
+# Build & Dependency Artifacts
+# ==============================================================================
+# Dockerfile should perform its own clean build
+build/
+.gradle/
+out/
+bin/
+target/
+dist/
+node_modules/
+frontend/node_modules/
+*.class
+*.jar
+*.war
+*.ear
+
+# ==============================================================================
+# Critical Privacy & Data (Financial Security)
+# ==============================================================================
+# Prevents local databases or exports from leaking into the image
+db/
+data/
+*.csv
+assets/csv/
+*.json
+!schwab-mapping-template.json
+schema_out.sql
+
+# ==============================================================================
+# Secrets & Credentials
+# ==============================================================================
+# Never bake secrets into an image; pass them via environment variables instead
+*.pem
+AwsCredentials.properties
+env/
+.Secrets
+secrets.*
+Secrets.*
+.env
+.env.local
+
+# ==============================================================================
+# IDEs, OS, and Version Control
+# ==============================================================================
+.idea/
+.vscode/
+*.iml
+*.sublime-*
+.DS_Store
+.git
+.gitignore
+.svn/
+
+# ==============================================================================
+# Temporary & Backup Files
+# ==============================================================================
+*.tmp
+*.bak
+*.swp
+*~
+#*#
