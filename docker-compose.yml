@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+
+  provider-service:
+    build: ./provider-service
+    depends_on:
+      - zookeeper
+    environment:
+      - SPRING_CLOUD_ZOOKEEPER_CONNECT_STRING=zookeeper:2181
+
+  consumer-service:
+    build: ./consumer-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - zookeeper
+      - provider-service
+    environment:
+      - SPRING_CLOUD_ZOOKEEPER_CONNECT_STRING=zookeeper:2181

@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: consumer-service
+  cloud:
+    zookeeper:
+      connect-string: zookeeper:2181  # Matches the Docker Compose service name
+      discovery:
+        enabled: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      providerBreaker:
+        registerHealthIndicator: true
+        slidingWindowSize: 4             # Track last 4 calls
+        minimumNumberOfCalls: 2          # Start calculating after 2 calls
+        failureRateThreshold: 50         # If 50% (1 out of 2) fail, OPEN the circuit
+        waitDurationInOpenState: 15s     # Stay OPEN for 15s before trying again
+        permittedNumberOfCallsInHalfOpenState: 2
+
+  timelimiter:
+    instances:
+      providerBreaker:
+        timeoutDuration: 2s              # Kill the request if the provider takes > 2s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, circuitbreakers
+  endpoint:
+    health:
+      show-details: always
