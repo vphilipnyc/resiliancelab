@@ -6,7 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients // <--- This is the "magic" that fixes the IDE error
+@EnableFeignClients
 @EnableDiscoveryClient // This tells the app to register with Zookeeper
 public class ConsumerApplication {
 
